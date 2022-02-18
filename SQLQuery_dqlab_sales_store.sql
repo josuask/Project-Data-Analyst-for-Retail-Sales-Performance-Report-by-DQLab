@@ -89,9 +89,9 @@ FROM dbo.dqlab_sales_store
 WHERE 
   order_status = 'Order Finished';
 
-----Calculation of the number of new customers and exiting customer order
+----Calculation of the number of new customers and returning customer order
 SELECT YEAR(order_date)as years,
-COUNT(CASE WHEN Order_Type='Repeat Order'then 1 end) as count_exiting_customer
+COUNT(CASE WHEN Order_Type='Repeat Order'then 1 end) as count_returning_customer
 FROM dbo.Customer_retention
 GROUP BY YEAR(order_date);
 
